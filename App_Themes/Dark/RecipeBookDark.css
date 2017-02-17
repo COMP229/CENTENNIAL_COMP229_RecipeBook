@@ -1,0 +1,203 @@
+﻿html{
+    background-color: #333333;
+}
+
+p{
+    color: #808080;
+}
+
+.title{
+    color: #9A3800;
+    font-size: 32px;
+}
+
+#logo{
+    height: 100px;
+    width: 100px;
+    float:left;
+}
+
+#Banner {
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+
+    font-size: 74px;
+    color: #FFB489;
+
+    background-color: #FF6813;
+
+    vertical-align: central;
+}
+
+#Menu {
+    width: 100%;
+    height: 30px;
+
+    text-align: center;
+
+    background-color: #333333;
+    
+    border-bottom: 1px #9A3800 solid;
+}
+
+.MenuItem {
+    display:inline-block;
+    width: 150px;
+    height: 23px;
+
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    background-color: #9A3800;
+
+    margin: 4px 1px 2px 1px;
+}
+
+.MenuItem:hover {
+    color: #9A3800;
+    background-color: #FFB489;
+}
+
+#Body{
+     width: 100%;
+     height: 591px;
+
+     text-align: center;
+
+     background-color: #202020;
+     
+     margin: 0 auto;
+}
+
+#Footer {
+    width: 100%;
+    height: 22px;
+
+    color: #FFB489;
+    text-align: center;
+
+    background-color: #9A3800;
+
+    border-top: 1px #9A3800 solid;
+    border-bottom: 1px #9A3800 solid;
+}
+
+.RecipeListItemContainer {
+    display: inline-block;
+    width: 290px;
+    height: 290px;
+
+    text-decoration: none;
+    color: white;
+    font-size: 46px;
+
+    margin-top: 2px;
+    border-radius:20px;
+}
+
+.RecipeListItemContainer:hover {
+    color: #FF6813;
+}
+
+.RecipeListItemImg {
+    width: 290px;
+    height: 290px;
+
+    border-radius: 5px;
+}
+
+.RecipeListItemTxt {
+    display: block;
+
+    margin-top: -170px;
+}
+
+.RecipeListItemContainerSearch {
+    display: block;
+    width: 600px;
+    height: 86px;
+    
+    color: #D84315;
+    font-size: 46px;
+    text-align: left;
+    text-decoration: none;
+
+    margin: 4px auto;
+    border: 1px solid;
+    border-color: #D84315;
+}
+
+.RecipeListItemContainerSearch:hover {
+    color: #ffffff;
+    background: #FF6813;
+}
+
+.RecipeListItemImgSearch {
+    width: 80px;
+    height: 80px;
+
+    margin: 3px 0 0 3px;
+    border-radius: 5px;
+}
+
+.RecipeListItemTxtSearch {
+    display: block;
+
+    margin-top: -85px;
+    margin-left: 90px;
+}
+
+.InputControl {
+    display:inline-block;
+    width: 450px;
+
+    font-size: 30px;
+
+    margin: 1px 7px;
+}
+
+.LabelInputControl {
+	float:left;
+    display:inline-block;
+    width: 100px; 
+    font-size: 15px;
+    float:left;
+    color: #D84315;
+}
+
+.Validator {
+    float:right;
+    color: #FF0000;
+}
+
+.TextBoxInputControl {
+	float:left;	   
+    display: inline-block;
+
+    width: 300px;
+    height: 25px;
+    
+    font-size: large;
+    color: #D84315;
+
+    border: 1px;
+    border-style: solid;
+    border-color: #D84315;
+}
+
+.InputForm {
+  display: block;
+}
+
+.ButtonControl { 
+    width: 150px;
+    height: 30px;
+
+    font-size: large;
+    color: #ffffff;
+
+    background-color: #9A3800;
+
+    margin-top: 10px;
+}

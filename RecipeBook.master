@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="RecipeBook.master.cs" Inherits="RecipeBook" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <%--<asp:ContentPlaceHolder ID="Stylesheets" runat="server">
+        <%--<link rel="stylesheet" href="App_Themes/Light/RecipeBookLight.css" type="text/css" />
+    </asp:ContentPlaceHolder>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="Banner">
+            <div style="width:600px; margin: 0 auto;">
+                <img id="logo" src="Cook-Book-icon.png" width="100" style="margin-right:8px"/>
+                <div>Recipe Book</div>
+            </div>
+        </div>
+        <div id="Menu">
+            <a class="MenuItem" href="HomePage.aspx">Home</a>
+            <a class="MenuItem" href="Recipes.aspx">Recipes</a>
+            <a class="MenuItem" href="AddRecipe.aspx">Add Recipe</a>
+            <a class="MenuItem" href="Search.aspx">Search</a>
+        </div>
+        <div id="Body">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="Footer">
+            By Renato Luiz Carneiro Junior
+        </div>
+    </form>
+</body>
+</html>
