@@ -12,12 +12,12 @@
             <asp:Label ID="lblRecipe" runat="server" Text="Recipe:" CssClass="LabelInputControl"></asp:Label><br />
             <div class="InputControl">
                 <asp:Label ID="lblName" runat="server" Text="Name" CssClass="LabelInputControl"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="txtName" CssClass="Validator"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name of the recipe is empty" ControlToValidate="txtName" CssClass="Validator" ValidationGroup="AddRecipe">*</asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtName" runat="server" CssClass="TextBoxInputControl"></asp:TextBox>
             </div>
             <div class="InputControl">
                 <asp:Label ID="lblSubmittedBy" runat="server" Text="Submitted by" CssClass="LabelInputControl"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtSubmittedby" CssClass="Validator"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Submitted by field is empty" ControlToValidate="txtSubmittedby" CssClass="Validator" ValidationGroup="AddRecipe">*</asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtSubmittedby" runat="server" CssClass="TextBoxInputControl"></asp:TextBox>
             </div>
             <div class="InputControl">
@@ -34,12 +34,13 @@
             </div>
             <div class="InputControl">
                 <asp:Label ID="lblNumberOfServings" runat="server" Text="Servings" CssClass="LabelInputControl"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="txtNumberOfServings" CssClass="Validator"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Number of servings needs to be numeric" ControlToValidate="txtNumberOfServings" ValidationExpression="^[0-9]*$" CssClass="Validator" ValidationGroup="AddRecipe">*</asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Number of servings is empty" ControlToValidate="txtNumberOfServings" CssClass="Validator" ValidationGroup="AddRecipe">*</asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtNumberOfServings" runat="server" CssClass="TextBoxInputControl"></asp:TextBox>
             </div>
             <div class="InputControl">
                 <asp:Label ID="lblDescription" runat="server" Text="Description" CssClass="LabelInputControl"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtDescription" CssClass="Validator"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Description field is empty" ControlToValidate="txtDescription" CssClass="Validator" ValidationGroup="AddRecipe">*</asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtDescription" runat="server" CssClass="TextBoxInputControl"></asp:TextBox>
             </div>
             <div class="InputControl">
@@ -66,8 +67,10 @@
                 <uc1:IngredientList runat="server" ID="IngredientList14" />
             </div>
 
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ValidatorSummary" ValidationGroup="AddRecipe"/>
+
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" CssClass="ButtonControl" CausesValidation="False"/>
-            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="ButtonControl" />
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="ButtonControl" ValidationGroup="AddRecipe"/>
         </div>
     </asp:Panel>
 </asp:Content>

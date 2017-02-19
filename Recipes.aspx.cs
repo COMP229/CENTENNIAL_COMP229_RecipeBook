@@ -26,11 +26,22 @@ public partial class Recipes : System.Web.UI.Page
 
         foreach (Recipe recipe in recipeRepository.getRecipes())
         {
+            //html += "<div class=RecipeListItemContainer>";
+            //html += "<a href=ViewRecipe.aspx?Recipe=" + recipe.id + ">";
+            //html += "<img class=" + "RecipeListItemImg" + " src=" + recipe.image + ">" + "</img>";
+            //html += "</a>";
+            //html += "<div class=" + "RecipeListItemTxt>" + recipe.name + "</div>";
+            //html += "</div>\n";
+
             html += "<div class=RecipeListItemContainer>";
             html += "<a href=ViewRecipe.aspx?Recipe=" + recipe.id + ">";
             html += "<img class=" + "RecipeListItemImg" + " src=" + recipe.image + ">" + "</img>";
             html += "</a>";
-            html += "<div class=" + "RecipeListItemTxt>" + recipe.name + "</div>";
+            html += "<div class=" + "RecipeListItemTxt>";
+            html += "<span>Name: " + recipe.name + "</span>";
+            html += "<span>Description:" + recipe.description + "</span>";
+            html += "<span>Submitted by:" + recipe.submittedBy + "</span>";
+            html += "</div>";
             html += "</div>\n";
         };
 
