@@ -11,4 +11,13 @@ public partial class RecipeBook : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void lnkLogout_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+
+        System.Web.Security.FormsAuthentication.SignOut();
+
+        Response.Redirect("Login.aspx");
+    }
 }

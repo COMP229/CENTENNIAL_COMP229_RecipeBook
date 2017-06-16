@@ -21,10 +21,11 @@
             </div>
         </div>
         <div id="Menu">
-            <a class="MenuItem" href="HomePage.aspx">Home</a>
+            <a class="MenuItem" href="Default.aspx">Home</a>
             <a class="MenuItem" href="Recipes.aspx">Recipes</a>
             <a class="MenuItem" href="AddRecipe.aspx">Add Recipe</a>
             <a class="MenuItem" href="Search.aspx">Search</a>
+            <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click" CssClass="MenuItem">Logout</asp:LinkButton>
         </div>
         <div id="Body">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

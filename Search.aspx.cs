@@ -21,21 +21,51 @@ public partial class Search : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            List<String> users = Recipe.getUsers();
+
+            ddlSubmittedBy.Items.Add(new ListItem("All", ""));
+            foreach(String user in users)
+            {
+                ddlSubmittedBy.Items.Add(new ListItem(user, "SubmittedBy='" + user + "'"));
+            }
+
+            List<Category> categories = Category.getCategories();
+
+            ddlCategory.Items.Add(new ListItem("All", ""));
+            foreach(Category category in categories)
+            {
+                ddlCategory.Items.Add(new ListItem(category.name, "idCategory=" + category.id.ToString()));
+            }
+
+            List<Ingredient> ingredients = Ingredient.getAllIngredientsName();
+
+            ddlNameOfIngredient.Items.Add(new ListItem("All", ""));
+            foreach(Ingredient ingredient in ingredients)
+            {
+                ddlNameOfIngredient.Items.Add(new ListItem(ingredient.name, "idIngredient=" + ingredient.id.ToString()));
+            }
+
+            ddl_SelectedIndexChanged(null, null);
+        }
     }
 
-    protected void btnSearch_Click(object sender, EventArgs e)
+    protected void ddl_SelectedIndexChanged(object sender, EventArgs e)
     {
-        RecipeRepository recipeRepository = (RecipeRepository)(Application["RecipeRepository"]);
         String html = "";
+        List<Recipe> recipes = new List<Recipe>();
 
-        foreach (Recipe recipe in recipeRepository.getRecipes())
+        recipes = Recipe.getRecipesByParamters(ddlSubmittedBy.SelectedValue, ddlNameOfIngredient.SelectedValue, ddlCategory.SelectedValue);
+
+        foreach (Recipe recipe in recipes)
         {
+            html += "<a href=ViewRecipe.aspx?idRecipe=" + recipe.id + ">";
             html += "<div class=RecipeListItemContainerSearch>";
-            html += "<a href=ViewRecipe.aspx?Recipe=" + recipe.id + ">";
             html += "<img class=" + "RecipeListItemImgSearch" + " src=" + recipe.image + ">" + "</img>";
-            html += "</a>";
-            html += "<div class=" + "RecipeListItemTxtSearch>" + recipe.name + "</div>";
+            html += "<div class=" + "RecipeListItemTxtSearch>" + recipe.name.Substring(0, 16) + (recipe.name.Trim().Length > 16 ? "..." : String.Empty) + "</div>";
             html += "</div>\n";
+            html += "</a>";
         };
 
         Literal1.Text = html;

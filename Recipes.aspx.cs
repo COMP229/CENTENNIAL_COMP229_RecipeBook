@@ -21,28 +21,20 @@ public partial class Recipes : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        RecipeRepository recipeRepository = (RecipeRepository)(Application["RecipeRepository"]);
         String html = "";
 
-        foreach (Recipe recipe in recipeRepository.getRecipes())
+        foreach (Recipe recipe in Recipe.getRecipes())
         {
-            //html += "<div class=RecipeListItemContainer>";
-            //html += "<a href=ViewRecipe.aspx?Recipe=" + recipe.id + ">";
-            //html += "<img class=" + "RecipeListItemImg" + " src=" + recipe.image + ">" + "</img>";
-            //html += "</a>";
-            //html += "<div class=" + "RecipeListItemTxt>" + recipe.name + "</div>";
-            //html += "</div>\n";
-
+            html += "<a href=ViewRecipe.aspx?idRecipe=" + recipe.id + ">";
             html += "<div class=RecipeListItemContainer>";
-            html += "<a href=ViewRecipe.aspx?Recipe=" + recipe.id + ">";
             html += "<img class=" + "RecipeListItemImg" + " src=" + recipe.image + ">" + "</img>";
-            html += "</a>";
             html += "<div class=" + "RecipeListItemTxt>";
-            html += "<span>Name: " + recipe.name + "</span>";
-            html += "<span>Description:" + recipe.description + "</span>";
-            html += "<span>Submitted by:" + recipe.submittedBy + "</span>";
+            html += "<span>Name: " + recipe.name.Substring(0, 25) + (recipe.name.Trim().Length > 25 ? "..." : String.Empty) + "</span>";
+            html += "<span>Description: " + (recipe.description.Trim().Length > 25 ? recipe.description.Substring(0, 25) : recipe.description) + (recipe.description.Trim().Length > 25 ? "..." : String.Empty) + "</span>";
+            html += "<span>Submitted by: " + recipe.submittedBy.Substring(0, 25) + (recipe.submittedBy.Trim().Length > 25 ? "..." : String.Empty) + "</span>";
             html += "</div>";
             html += "</div>\n";
+            html += "</a>";
         };
 
         Literal1.Text = html;

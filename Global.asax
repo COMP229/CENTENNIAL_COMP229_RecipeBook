@@ -5,10 +5,7 @@
     void Application_Start(object sender, EventArgs e) 
     {
         // Code that runs on application startup
-        RecipeRepository recipeRepository = new RecipeRepository();
-        recipeRepository.createStartingRecipeList();
 
-        Application["RecipeRepository"] = recipeRepository;
     }
     
     void Application_End(object sender, EventArgs e) 
